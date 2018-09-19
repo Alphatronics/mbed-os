@@ -8,7 +8,7 @@ STACK_SIZE = 0x400;
  * uVisor is enabled, this is also the maximum available heap size. The
  * HEAP_SIZE value is set by uVisor porters to balance the size of the legacy
  * heap and the page heap in uVisor applications. */
-HEAP_SIZE = 0x6000;
+HEAP_SIZE = 0x10000;
 
 #if !defined(MBED_APP_START)
   #define MBED_APP_START 0x08000000
@@ -273,7 +273,7 @@ SECTIONS
         . += HEAP_SIZE;
         __HeapLimit = .;
         __uvisor_heap_end = .;
-    } > RAM
+    } > CCM
 
     __StackTop = ORIGIN(RAM) + LENGTH(RAM);
     __stack = __StackTop;

@@ -208,6 +208,11 @@ class Sw4STM32(GNUARMEclipse):
             'name': 'NUCLEO-F429ZI',
             'mcuId': 'STM32F429ZITx'
         },
+        'BINBEAT-V1_0':
+        {
+            'name': 'BINBEAT-V1_0',
+            'mcuId': 'STM32F429ZITx'
+        },
         'NUCLEO_F446RE':
         {
             'name': 'NUCLEO-F446RE',
