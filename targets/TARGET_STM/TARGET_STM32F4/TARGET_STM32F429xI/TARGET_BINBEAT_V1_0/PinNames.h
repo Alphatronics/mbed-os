@@ -346,7 +346,7 @@ typedef enum {
     SYS_WKUP = PA_0,
 
     // Not connected
-    NC = (int)0xFFFFFFFF
+    NC = (int)0xFFFFFFFF,
     
 	/* BINBEAT V1.0 STARTS HERE */
 	//UART GPRS

@@ -35,6 +35,7 @@
 #include "mbed_error.h"
 
 static RTC_HandleTypeDef RtcHandle;
+RTC_HandleTypeDef * GlobalRtcHandle = &RtcHandle;
 
 void rtc_init(void)
 {

@@ -1326,7 +1326,7 @@
                 "macro_name": "MODEM_ON_BOARD_UART"
             }
         },
-        "extra_labels_add": ["STM32F4", "STM32F429", "STM32F429ZI", "STM32F429xx", "STM32F429xI", "STM_EMAC", "BINBEAT_V1"],
+        "extra_labels_add": ["STM32F4", "STM32F429", "STM32F429ZI", "STM32F429xx", "STM32F429xI", "BINBEAT_V1"],
         "macros_add": ["USB_STM_HAL", "USBHOST_OTHER"],
         "device_has_add": ["ANALOGOUT", "CAN", "SERIAL_ASYNCH", "SERIAL_FC", "TRNG", "FLASH"],
         "detect_code": ["0796"],
