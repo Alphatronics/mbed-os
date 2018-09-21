@@ -75,7 +75,7 @@ public:
      *  @param send_delay       the minimum delay in ms between the end of last response and the beginning of a new command
      */
     ATHandler(FileHandle *fh, events::EventQueue &queue, int timeout, const char *output_delimiter, uint16_t send_delay = 0);
-    ~ATHandler();
+    virtual ~ATHandler();
 
     /** Return used file handle.
      *
@@ -165,10 +165,6 @@ public:
      */
     void process_oob();
 
-    /** Set sigio for the current file handle. Sigio event goes through eventqueue so that it's handled in current thread.
-     */
-    void set_filehandle_sigio();
-
     /** Set file handle, which is used for reading AT responses and writing AT commands
      *
      *  @param fh file handle used for reading AT responses and writing AT commands
@@ -212,8 +208,6 @@ private:
     uint16_t _at_send_delay;
     uint64_t _last_response_stop;
 
-    bool _fh_sigio_set;
-
     bool _processing;
     int32_t _ref_count;
     bool _is_fh_usable;
@@ -226,7 +220,7 @@ public:
      *
      *  @param cmd  AT command to be written to modem
      */
-    void cmd_start(const char *cmd);
+    virtual void cmd_start(const char *cmd);
 
     /** Writes integer type AT command subparameter. Starts with the delimiter if not the first param after cmd_start.
      *  In case of failure when writing, the last error is set to NSAPI_ERROR_DEVICE_ERROR.
@@ -302,7 +296,7 @@ public:
      *  Stops on delimiter or stop tag.
      *
      *  @param str output buffer for the read
-     *  @param size maximum number of chars to output
+     *  @param size maximum number of chars to output including NULL
      *  @param read_even_stop_tag if true then try to read even if the stop tag was found previously
      *  @return length of output string or -1 in case of read timeout before delimiter or stop tag is found
      */
@@ -511,8 +505,6 @@ private:
 
     // check is urc is already added
     bool find_urc_handler(const char *prefix, mbed::Callback<void()> callback);
-
-    ssize_t read(char *buf, size_t size, bool read_even_stop_tag, bool hex);
 
     // print contents of a buffer to trace log
     void debug_print(char *p, int len);

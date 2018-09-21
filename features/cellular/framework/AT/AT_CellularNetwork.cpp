@@ -277,11 +277,28 @@ nsapi_error_t AT_CellularNetwork::activate_context()
     _at.lock();
 
     nsapi_error_t err = NSAPI_ERROR_OK;
-
+    // for deleting all contex objects in the modem.
+/*
+   for(int i=1;i<10;i++) {
+	   _at.clear_error();
+	   _at.cmd_start("AT+CGDCONT=");
+	   _at.write_int(i);
+	   _at.cmd_stop();
+	   _at.resp_start();
+	   _at.resp_stop();
+   }
+   if (_at.get_last_error() == NSAPI_ERROR_OK) {
+           _cid = -1;
+           _new_context_set = false;
+       }
+       */
     // try to find or create context with suitable stack
+   tr_debug("pwd: %s", _pwd);
+   tr_debug("uname: %s", _uname);
+    err = do_user_authentication();
     if (get_context()) {
         // try to authenticate user before activating or modifying context
-        err = do_user_authentication();
+
     } else {
         err = NSAPI_ERROR_NO_CONNECTION;
     }
@@ -411,6 +428,7 @@ nsapi_error_t AT_CellularNetwork::open_data_channel()
 nsapi_error_t AT_CellularNetwork::disconnect()
 {
 #if NSAPI_PPP_AVAILABLE
+	tr_info("Disconnect data channel in PPP mode");
     nsapi_error_t err = nsapi_ppp_disconnect(_at.get_file_handle());
     // after ppp disconnect if we wan't to use same at handler we need to set filehandle again to athandler so it
     // will set the correct sigio and nonblocking

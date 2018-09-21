@@ -263,7 +263,7 @@ SECTIONS
         . = ALIGN(4);
         __bss_end__ = .;
         _ebss = .;
-    } > RAM
+    } > CCM
 
     .heap (NOLOAD):
     {
@@ -273,7 +273,7 @@ SECTIONS
         . += HEAP_SIZE;
         __HeapLimit = .;
         __uvisor_heap_end = .;
-    } > CCM
+    } > RAM
 
     __StackTop = ORIGIN(RAM) + LENGTH(RAM);
     __stack = __StackTop;
