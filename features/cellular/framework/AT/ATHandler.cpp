@@ -1156,13 +1156,13 @@ void ATHandler::debug_print(char *p, int len)
             char c = *p++;
             if (!isprint(c)) {
                 if (c == '\r') {
-                    tr_debug("\n");
+                    debug_if(_debug_on, "\n");
                 } else if (c == '\n') {
                 } else {
-                	tr_debug("[%d]", c);
+                	debug_if(_debug_on, "[%d]", c);
                 }
             } else {
-            	tr_debug("%c", c);
+            	debug_if(_debug_on, "%c", c);
             }
         }
 #if MBED_CONF_MBED_TRACE_ENABLE

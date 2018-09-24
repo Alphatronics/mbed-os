@@ -45,6 +45,8 @@ public:
     virtual nsapi_error_t get_sim_state(SimState &state);
 
     virtual nsapi_error_t get_imsi(char* imsi);
+
+    virtual nsapi_error_t get_iccid(char *buf, size_t buf_size);
 };
 
 } // namespace mbed

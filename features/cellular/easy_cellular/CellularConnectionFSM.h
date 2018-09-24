@@ -173,6 +173,14 @@ public:
      */
     const char *get_state_string(CellularState state);
 
+    /** Get the ICCID (Integrated Circuit Card ID) of the SIM-card
+     * ICCID is a serial number identifying the SIM.
+     * Can be NULL if called too early
+     * 
+     * @return         Null-terminated representation of the SIM card's ICCID
+     * */
+    const char * get_iccid();
+
 private:
     bool power_on();
     bool open_sim();
@@ -220,6 +228,7 @@ private:
     rtos::Thread *_queue_thread;
     CellularDevice *_cellularDevice;
     char _sim_pin[PIN_SIZE+1];
+    char _sim_iccid[MAX_ICCID_LENGTH];
     int _retry_count;
     int _start_time;
     int _event_timeout;

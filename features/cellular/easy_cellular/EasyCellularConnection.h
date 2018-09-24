@@ -145,6 +145,14 @@ public:
      *  @param plmn operator in numeric format. See more from 3GPP TS 27.007 chapter 7.3.
      */
     void set_plmn(const char* plmn);
+
+    /** Get the ICCID (Integrated Circuit Card ID) of the SIM-card
+     * ICCID is a serial number identifying the SIM.
+     * Can be NULL if called too early
+     * 
+     * @return         Null-terminated representation of the SIM card's ICCID
+     * */
+    const char * get_iccid();
 protected:
 
     /** Provide access to the NetworkStack object

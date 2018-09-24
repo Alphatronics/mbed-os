@@ -340,6 +340,14 @@ void EasyCellularConnection::set_plmn(const char *plmn)
     }
 }
 
+const char * EasyCellularConnection::get_iccid()
+{
+    if (_cellularConnectionFSM) {
+        return _cellularConnectionFSM->get_iccid();
+    }
+    return NULL;
+}
+
 NetworkStack *EasyCellularConnection::get_stack()
 {
     if (_cellularConnectionFSM) {

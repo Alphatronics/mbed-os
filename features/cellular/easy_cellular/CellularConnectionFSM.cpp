@@ -47,6 +47,7 @@ CellularConnectionFSM::CellularConnectionFSM() :
     _automatic_reconnect(true)
 {
     memset(_sim_pin, 0, sizeof(_sim_pin));
+    memset(_sim_iccid, 0, sizeof(_sim_iccid));
 #if MBED_CONF_CELLULAR_RANDOM_MAX_START_DELAY == 0
     _start_time = 0;
 #else
@@ -161,6 +162,11 @@ void CellularConnectionFSM::set_plmn(const char *plmn)
     _plmn = plmn;
 }
 
+const char * CellularConnectionFSM::get_iccid()
+{
+    return _sim_iccid;
+}
+
 bool CellularConnectionFSM::open_sim()
 {
     CellularSIM::SimState state = CellularSIM::SimStateUnknown;
@@ -170,6 +176,9 @@ bool CellularConnectionFSM::open_sim()
         tr_info("Waiting for SIM (err while reading)...");
         return false;
     }
+
+    if(_sim->get_iccid(_sim_iccid, MAX_ICCID_LENGTH) != NSAPI_ERROR_OK) 
+        return false;
 
     if (state == CellularSIM::SimStatePinNeeded) {
         if (strlen(_sim_pin)) {
