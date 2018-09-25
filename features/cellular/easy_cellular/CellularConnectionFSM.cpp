@@ -275,7 +275,7 @@ void CellularConnectionFSM::report_failure(const char *msg)
 
 const char *CellularConnectionFSM::get_state_string(CellularState state)
 {
-#if MBED_CONF_MBED_TRACE_ENABLE
+#if MBED_CONF_MBED_TRACE_ENABLE || MBED_CONF_CELLULAR_DEBUG_AT
     static const char *strings[] = { "Init", "Power", "Device ready", "SIM pin", "Registering network", "Manual registering", "Attaching network", "Activating PDP Context", "Connecting network", "Connected"};
     return strings[state];
 #else

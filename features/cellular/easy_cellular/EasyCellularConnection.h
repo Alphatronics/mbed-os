@@ -146,13 +146,6 @@ public:
      */
     void set_plmn(const char* plmn);
 
-    /** Get the ICCID (Integrated Circuit Card ID) of the SIM-card
-     * ICCID is a serial number identifying the SIM.
-     * Can be NULL if called too early
-     * 
-     * @return         Null-terminated representation of the SIM card's ICCID
-     * */
-    const char * get_iccid();
 protected:
 
     /** Provide access to the NetworkStack object
@@ -160,6 +153,11 @@ protected:
      *  @return The underlying NetworkStack object
      */
     virtual NetworkStack *get_stack();
+
+    /**
+     * called before cellular_status
+     * */
+    virtual void before_cellular_status(int state, int next_state);
 
 private:
     /** Callback for cellular status changes
@@ -180,7 +178,10 @@ private:
 
     UARTSerial _cellularSerial;
     rtos::Semaphore _cellularSemaphore;
+
+protected:
     CellularConnectionFSM *_cellularConnectionFSM;
+private:
     nsapi_error_t _credentials_err;
     Callback<void(nsapi_event_t, intptr_t)> _status_cb;
 };

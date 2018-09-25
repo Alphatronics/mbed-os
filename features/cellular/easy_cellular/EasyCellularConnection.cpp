@@ -40,6 +40,8 @@ bool EasyCellularConnection::cellular_status(int state, int next_state)
 	if(!_cellularConnectionFSM)
 		return false;
 
+    before_cellular_status(state, next_state);
+
     tr_info("cellular_status: %s ==> %s", _cellularConnectionFSM->get_state_string((CellularConnectionFSM::CellularState)state),
             _cellularConnectionFSM->get_state_string((CellularConnectionFSM::CellularState)next_state));
 
@@ -340,12 +342,9 @@ void EasyCellularConnection::set_plmn(const char *plmn)
     }
 }
 
-const char * EasyCellularConnection::get_iccid()
+void EasyCellularConnection::before_cellular_status(int state, int next_state)
 {
-    if (_cellularConnectionFSM) {
-        return _cellularConnectionFSM->get_iccid();
-    }
-    return NULL;
+
 }
 
 NetworkStack *EasyCellularConnection::get_stack()
