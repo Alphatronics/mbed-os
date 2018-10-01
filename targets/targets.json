@@ -1295,10 +1295,11 @@
             "network-default-interface-type": "ETHERNET"
         }
     },
-    "BINBEAT_V1_0": {
+    "MODULE_BINBEAT_V1": {
         "inherits": ["FAMILY_STM32"],
         "supported_form_factors": ["ARDUINO"],
         "core": "Cortex-M4F",
+        "public": false,
         "config": {
             "d11_configuration": {
                 "help": "Value: PA_7 for the default board configuration, PB_5 in case of solder bridge update (SB121 off/ SB122 on)",
@@ -1326,17 +1327,24 @@
                 "macro_name": "MODEM_ON_BOARD_UART"
             }
         },
-        "extra_labels_add": ["STM32F4", "STM32F429", "STM32F429ZI", "STM32F429xx", "STM32F429xI", "BINBEAT_V1"],
+        "extra_labels_add": ["STM32F4", "STM32F429", "STM32F429ZI", "STM32F429xx", "STM32F429xI", "BINBEATv1"],
         "macros_add": ["USB_STM_HAL", "USBHOST_OTHER"],
         "device_has_add": ["ANALOGOUT", "CAN", "SERIAL_ASYNCH", "SERIAL_FC", "TRNG", "FLASH"],
         "detect_code": ["0796"],
         "features": ["LWIP"],
         "release_versions": ["2", "5"],
-        "device_name": "BINBEAT_V1_0",
         "bootloader_supported": true,
         "overrides": {
             "network-default-interface-type": "CELLULAR"
         }
+    },
+    "BINBEAT_V1_0": {
+        "inherits": ["MODULE_BINBEAT_V1"],
+        "device_name": "BINBEAT_V1_0"
+    },
+    "BINBEAT_V1_2": {
+        "inherits": ["MODULE_BINBEAT_V1"],
+        "device_name": "BINBEAT_V1_2"
     },
     "NUCLEO_F439ZI": {
         "inherits": ["FAMILY_STM32"],

@@ -33,7 +33,7 @@ namespace mbed {
 #define CELLULAR_DEVICE UBLOX_PPP
 #elif TARGET_UBLOX_C027
 #define CELLULAR_DEVICE UBLOX_PPP
-#elif TARGET_BINBEAT_V1_0
+#elif TARGET_MODULE_BINBEAT_V1
 #define CELLULAR_DEVICE UBLOX_PPP
 #else
 //#error Cellular target not defined, see cellular/targets.h
