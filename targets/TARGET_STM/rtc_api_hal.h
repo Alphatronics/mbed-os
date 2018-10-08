@@ -61,6 +61,12 @@ uint32_t rtc_read_lp(void);
  */
 void rtc_set_wake_up_timer(timestamp_t timestamp);
 
+/** Program a wake up timer event
+ *
+ * @param timestamp: counter to set
+ */
+void rtc_set_wake_up_timer_ex(timestamp_t timestamp, uint32_t WakeUpClock);
+
 /** Call RTC Wake Up IT
  */
 void rtc_fire_interrupt(void);
