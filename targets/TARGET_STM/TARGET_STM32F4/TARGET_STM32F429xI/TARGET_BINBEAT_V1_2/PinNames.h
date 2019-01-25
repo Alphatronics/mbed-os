@@ -348,7 +348,7 @@ typedef enum {
     // Not connected
     NC = (int)0xFFFFFFFF,
     
-	/* BINBEAT V1.0 STARTS HERE */
+	/* BINBEAT V1.2 STARTS HERE */
 	//UART GPRS
 #define  MDM_PIN_POLARITY 0 //polarity of the pins must also be defined as 0 (active low) or 1 (active high).
     MDMTXD = PD_5,    // Transmit Data
@@ -383,7 +383,7 @@ typedef enum {
 	RST_RFID = PE_6,
 	//Accelerometer
 	CS_ACCEL = PE_3,
-	INT1_ACCEL = PB_7,
+	INT1_ACCEL = PA_0,
 	INT2_ACCEL = PG_15,
 	//Bluetooth
 	CS_BLE = PD_2,
