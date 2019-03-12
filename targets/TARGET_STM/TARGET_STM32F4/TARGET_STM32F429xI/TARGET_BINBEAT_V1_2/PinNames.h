@@ -425,7 +425,7 @@ typedef enum {
 	ADC_VC = PA_2,
 	
 	//Fill level sensor
-	EN_5V_FILL = PF_6,
+	EN_5V_FILL = PB_8,
 	RX_FILL = PE_7,
 	TX_FILL = PE_8, //NOT USED, BUT NEEDED FOR CONFIG
     FAULT_FILL = PB_9,

@@ -424,10 +424,10 @@ typedef enum {
 	EN_ADC_VC = PC_2,
 	ADC_VC = PA_2,
 	
-	//Fill level sensor
-	EN_5V_FILL = PF_6,
-	RX_FILL = PE_7,
-	TX_FILL = PE_8, //NOT USED, BUT NEEDED FOR CONFIG
+	//Fill level sensor: not supported
+	EN_5V_FILL = PB_8,
+	RX_FILL = PA_1,
+	TX_FILL = PA_0, //NOT USED, BUT NEEDED FOR CONFIG. Conflict with PA_0 for wakeup!
     FAULT_FILL = PB_9,
 	
 	//SD = STANDARD MBED PINNING 
