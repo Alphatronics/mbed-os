@@ -2826,6 +2826,77 @@
             "network-default-interface-type": "ETHERNET"
         }
     },
+	"MODULE_BINBEAT_V1": {
+        "inherits": ["FAMILY_STM32"],
+        "supported_form_factors": ["ARDUINO"],
+        "core": "Cortex-M4F",
+        "public": false,
+        "config": {
+            "d11_configuration": {
+                "help": "Value: PA_7 for the default board configuration, PB_5 in case of solder bridge update (SB121 off/ SB122 on)",
+                "value": "PA_7",
+                "macro_name": "STM32_D11_SPI_ETHERNET_PIN"
+            },
+            "clock_source": {
+                "help": "Mask value : USE_PLL_HSE_EXTC | USE_PLL_HSE_XTAL | USE_PLL_HSI",
+                "value": "USE_PLL_HSE_XTAL|USE_PLL_HSI",
+                "macro_name": "CLOCK_SOURCE"
+            },
+            "modem_is_on_board": {
+                "help": "Value: Tells the build system that the modem is on-board as oppose to a plug-in shield/module.",
+                "value": 1,
+                "macro_name": "MODEM_ON_BOARD"
+            },
+            "modem_data_connection_type": {
+                "help": "Value: Defines how an on-board modem is wired up to the MCU, e.g., data connection can be a UART or USB and so forth.",
+                "value": 1,
+                "macro_name": "MODEM_ON_BOARD_UART"
+            }
+        },
+        "extra_labels_add": [
+			"STM32F4", 
+			"STM32F429", 
+			"STM32F429ZI", 
+			"STM32F429xx", 
+			"STM32F429xI", 
+			"BINBEATv1", 
+			"PSA",
+			"CORDIO",
+			"CORDIO_BLUENRG"
+		],
+        "macros_add": [
+			"USB_STM_HAL", 
+			"USBHOST_OTHER",
+            "MBEDTLS_PSA_CRYPTO_C"
+		],
+		"device_has_add": [
+            "ANALOGOUT",
+            "SERIAL_ASYNCH",
+            "TRNG",
+            "FLASH",
+            "MPU",
+			"STORAGE"
+        ],
+        "detect_code": ["0796"],
+        "features": [
+			"LWIP", 
+			"BLE", 
+			"STORAGE"
+		],
+        "release_versions": ["2", "5"],
+        "bootloader_supported": true,
+        "overrides": {
+            "network-default-interface-type": "CELLULAR"
+        }
+    },
+    "BINBEAT_V1_0": {
+        "inherits": ["MODULE_BINBEAT_V1"],
+        "device_name": "BINBEAT_V1_0"
+    },
+    "BINBEAT_V1_2": {
+        "inherits": ["MODULE_BINBEAT_V1"],
+        "device_name": "BINBEAT_V1_2"
+    },
     "NUCLEO_F439ZI": {
         "inherits": ["FAMILY_STM32"],
         "supported_form_factors": ["ARDUINO"],
