@@ -209,6 +209,12 @@
              "SPI_MISO": "PC_11",
              "SPI_CLK":  "PC_10",
              "SPI_CS":   "PA_15"
+        },
+        "MODULE_BINBEAT_V1": {
+            "SPI_MOSI": "MOSI_SD",
+            "SPI_MISO": "MISO_SD",
+            "SPI_CLK":  "SCLK_SD",
+            "SPI_CS":   "CS_SD"
         }
         
     }
