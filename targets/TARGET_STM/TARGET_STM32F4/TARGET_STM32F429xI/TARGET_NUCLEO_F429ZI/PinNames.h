@@ -346,7 +346,126 @@ typedef enum {
     SYS_WKUP = PA_0,
 
     // Not connected
-    NC = (int)0xFFFFFFFF
+    NC = (int)0xFFFFFFFF,
+
+
+    	/* BINBEAT V1.2 STARTS HERE */
+	//UART GPRS
+#define  MDM_PIN_POLARITY 0 //polarity of the pins must also be defined as 0 (active low) or 1 (active high).
+    MDMTXD = PD_5,    // Transmit Data
+    MDMRXD = PD_6,    // Receive Data
+    MDMCTS = PD_3,    // Clear to Send
+    MDMDCD = NC,    // Data Carrier Detect
+    MDMDSR = NC,    // Data Set Ready
+    MDMDTR = NC,    // Data Terminal Ready (set high or use handshake)
+    MDMRI  = NC,    // Ring Indicator
+    MDMRTS = PD_4,    // Request to Send (set high or use handshake)
+	//I2C GPRS
+	SDA_GPRS = PC_9,
+	SCL_GRPS = PA_8,
+	//Control lines GPRS
+	RSTN_GPRS = PG_6,
+	PWRON_GPRS = PG_7,
+	OE_UART_GRPS = PA_9,
+	OE_I2C = PA_12,
+	
+	//Frontpanel
+	MOSI_FRONT = PG_14,
+	MISO_FRONT = PG_12,
+	SCLK_FRONT = PG_13,
+	//OLED
+	EN_13V_OLED = PG_11,
+	CS_OLED = PD_7,
+	RST_OLED = PG_9,
+	DC_OLED = PG_10,
+	//RFID
+	CS_RFID = PE_4,
+	IRQ_RFID = PE_5,
+	RST_RFID = PE_6,
+	//Accelerometer
+	CS_ACCEL = PE_3,
+	INT1_ACCEL = PA_0,
+	INT2_ACCEL = PG_15,
+	//Bluetooth
+	CS_BLE = PD_2,
+	RST_BLE = PD_1,
+	IRQ_BLE = PD_0,
+	//BUZZER
+	BUZZER = PF_7,
+	
+	//Motherboard power
+	EN_3V8_GPRS = PG_8,
+	EN_3V3_LOGIC = PG_1,
+	EN_5V_LOGIC = PA_1,
+	
+	//Lock1
+	PWR_LOCK1 = PF_3,
+	PWM1_LOCK1 = PF_9,
+	PWM2_LOCK1 = PF_8,
+	IND1_LOCK1 = PC_0,
+	
+	//Lock2
+	PWR_LOCK2 = PF_1,
+	PWM1_LOCK2 = PB_5,
+	PWM2_LOCK2 = PB_6,
+    IND2_LOCK2 = PC_4,
+	
+	//Lock3
+	PWR_LOCK3 = PF_4,
+	PWM1_LOCK3 = PA_11,
+	PWM2_LOCK3 = PA_10,
+	IND3_LOCK3 = PC_1,
+	
+	//Extra input
+	IND4_EXTRA = PF_2,
+	
+	//ADC
+	EN_ADC_VB = PC_3,
+	ADC_VB = PA_3,
+	EN_ADC_VC = PC_2,
+	ADC_VC = PA_2,
+	
+	//Fill level sensor
+	EN_5V_FILL = PB_8,
+	RX_FILL = PE_7,
+	TX_FILL = PE_8, //NOT USED, BUT NEEDED FOR CONFIG
+    FAULT_FILL = PB_9,
+	
+	//SD = STANDARD MBED PINNING 
+	MOSI_SD = PC_12,
+	MISO_SD = PC_11,
+	SCLK_SD = PC_10,
+	CS_SD = PA_15,
+	
+	//AT45 FW update
+	MOSI_AT45_FW = MOSI_SD,
+	MISO_AT45_FW = MISO_SD,
+	SCLK_AT45_FW = SCLK_SD,
+	CS_AT45_FW = PC_8,
+	
+	//AT45 WL
+	MOSI_AT45_WL = PA_7,
+	MISO_AT45_WL = PA_6,
+	SCLK_AT45_WL = PA_5,
+	CS_AT45_WL = PA_4,
+	
+	//RS485
+	RX_RS485 = PE_0,
+	TX_RS485 = PE_1,
+	DIR_RS485 = PE_2,
+	
+	//RS232 
+	EN_RS232 = PB_15,
+	FORCEOFF_RS232 = PD_10,
+	FORCEON_RS232 = PD_11,
+	INVALID_RS232 = PD_12,
+	//DEBUG INTERFACE = STANDARD MBED PINNING
+    RX_RS232_DEBUG = PD_9,
+	TX_RS232_DEBUG = PD_8,
+	//RS232 battery pack
+	RX_RS232_BATT = PC_7,
+	TX_RS232_BATT = PC_6	
+    
 } PinName;
 
 #ifdef __cplusplus
