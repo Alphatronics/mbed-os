@@ -19,6 +19,12 @@
 #include "utest.h"
 #include "rtos.h"
 
+#if defined(TARGET_BINBEAT_V1_0) || defined(TARGET_BINBEAT_V1_2)
+#include "system_testing.h"
+#else
+void board_powerup() {}
+#endif
+
 #if defined(MBED_RTOS_SINGLE_THREAD)
   #error [NOT_SUPPORTED] test not supported
 #endif
@@ -346,5 +352,6 @@ Specification specification(test_setup, cases);
 
 int main()
 {
+    board_powerup();
     return !Harness::run(specification);
 }
