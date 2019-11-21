@@ -27,8 +27,12 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *******************************************************************************
  */
-
+//Alphatronics modif:
 #if DEVICE_LPTICKER
+
+//TEST ALPHATRONICS
+#undef MBED_CONF_TARGET_LSE_AVAILABLE
+#define MBED_CONF_TARGET_LSI_AVAILABLE
 
 /***********************************************************************/
 /* lpticker_lptim config is 1 in json config file                      */

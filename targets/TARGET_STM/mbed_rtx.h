@@ -113,7 +113,8 @@
        defined(TARGET_STM32F746ZG) ||\
        defined(TARGET_STM32F756ZG) ||\
        defined(TARGET_STM32L496AG) ||\
-       defined(TARGET_STM32L496ZG))
+       defined(TARGET_STM32L496ZG) ||\
+       defined(TARGET_STM32L496RG)) 
 #define INITIAL_SP              (0x20050000UL)
 
 #elif (defined(TARGET_STM32F767ZI) ||\
