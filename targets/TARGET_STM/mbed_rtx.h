@@ -115,6 +115,7 @@
        defined(TARGET_STM32F746ZG) ||\
        defined(TARGET_STM32F756ZG) ||\
        defined(TARGET_STM32L496AG) ||\
+       defined(TARGET_STM32L496RG) ||\
        defined(TARGET_STM32L496ZG))
 #define INITIAL_SP              (0x20050000UL)
 
