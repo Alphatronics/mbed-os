@@ -7709,8 +7709,8 @@
         "extra_labels_add": ["STM32L4", "STM32L496RG", "STM32L496xG"],
         "config": {
             "clock_source": {
-                "help": "Mask value : USE_PLL_HSE_EXTC (need HW patch) | USE_PLL_HSE_XTAL (need HW patch) | USE_PLL_HSI | USE_PLL_MSI",
-                "value": "USE_PLL_HSE_EXTC",
+                "help": "Mask value : USE_PLL_HSE_EXTC | USE_PLL_MSI",
+                "value": "USE_PLL_MSI",
                 "macro_name": "CLOCK_SOURCE"
             },
             "lpticker_lptim": {
@@ -7723,7 +7723,8 @@
         ],
         "overrides": { 
             "lpticker_delay_ticks": 4,
-            "lse_available": 0
+            "lse_available": 0,
+            "lpuart_clock_source": "USE_LPUART_CLK_HSI"
         },
         "detect_code": ["0823"],
         "device_has_add": [

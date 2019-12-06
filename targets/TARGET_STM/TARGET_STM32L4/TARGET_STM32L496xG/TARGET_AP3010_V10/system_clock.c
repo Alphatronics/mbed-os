@@ -26,7 +26,7 @@
   * AHBCLK (MHz)        | 80
   * APB1CLK (MHz)       | 80
   * APB2CLK (MHz)       | 80
-  * USB capable         | YES
+  * USB capable         | NO
   *-----------------------------------------------------------------------------
 **/
 
@@ -169,12 +169,14 @@ uint8_t SetSysClock_PLL_HSE(uint8_t bypass)
     HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0);
 
     // Enable HSE oscillator and activate PLL with HSE as source
-    RCC_OscInitStruct.OscillatorType        = RCC_OSCILLATORTYPE_HSE | RCC_OSCILLATORTYPE_HSI;
+    RCC_OscInitStruct.OscillatorType        = RCC_OSCILLATORTYPE_HSE | RCC_OSCILLATORTYPE_HSI | RCC_OSCILLATORTYPE_LSI;
+    RCC_OscInitStruct.LSIState              = RCC_LSI_ON;
+    RCC_OscInitStruct.LSEState              = RCC_LSE_OFF;
     if (bypass == 0) {
         RCC_OscInitStruct.HSEState            = RCC_HSE_ON; // External 8 MHz xtal on OSC_IN/OSC_OUT
     } else {
         RCC_OscInitStruct.HSEState            = RCC_HSE_BYPASS; // External 8 MHz clock on OSC_IN
-    }
+    }    
     RCC_OscInitStruct.HSIState              = RCC_HSI_OFF;
     RCC_OscInitStruct.PLL.PLLSource         = RCC_PLLSOURCE_HSE; // 8 MHz
     RCC_OscInitStruct.PLL.PLLState          = RCC_PLL_ON;
@@ -197,7 +199,8 @@ uint8_t SetSysClock_PLL_HSE(uint8_t bypass)
     if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK) {
         return 0; // FAIL
     }
-
+/*
+//NO USB
     RCC_PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USB;
     RCC_PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_PLLSAI1;
     RCC_PeriphClkInit.PLLSAI1.PLLSAI1Source = RCC_PLLSOURCE_HSE;
@@ -210,7 +213,7 @@ uint8_t SetSysClock_PLL_HSE(uint8_t bypass)
     if (HAL_RCCEx_PeriphCLKConfig(&RCC_PeriphClkInit) != HAL_OK) {
         return 0; // FAIL
     }
-
+*/
     // Disable MSI Oscillator
     RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
     RCC_OscInitStruct.MSIState       = RCC_MSI_OFF;
@@ -334,6 +337,14 @@ uint8_t SetSysClock_PLL_MSI(void)
 
     /* Enable the CSS interrupt in case LSE signal is corrupted or not present */
     HAL_RCCEx_DisableLSECSS();
+#else
+    RCC_OscInitStruct.OscillatorType       = RCC_OSCILLATORTYPE_LSI;
+    RCC_OscInitStruct.LSIState             = RCC_LSI_ON;
+    RCC_OscInitStruct.LSEState             = RCC_LSE_OFF;
+    RCC_OscInitStruct.PLL.PLLState         = RCC_PLL_NONE;
+    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+        return 0; // FAIL
+    }
 #endif /* MBED_CONF_TARGET_LSE_AVAILABLE */
 
     /* Enable MSI Oscillator and activate PLL with MSI as source */
@@ -374,9 +385,9 @@ uint8_t SetSysClock_PLL_MSI(void)
         return 0; // FAIL
     }
 
-    /* Select LSE as clock source for LPUART1 */
+    /* Select HSI as clock source for LPUART1 */
     PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_LPUART1;
-    PeriphClkInitStruct.Lpuart1ClockSelection = RCC_LPUART1CLKSOURCE_LSE;
+    PeriphClkInitStruct.Lpuart1ClockSelection = RCC_LPUART1CLKSOURCE_HSI;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK) {
         return 0; // FAIL
     }

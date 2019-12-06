@@ -197,10 +197,10 @@ typedef enum {
     USBRX       = STDIO_UART_RX, // Virtual Com Port
     I2C_SCL     = PB_6,
     I2C_SDA     = PB_9,
-    SPI_MOSI    = PB_5,
+    SPI_MOSI    = PB_5_ALT0,
     SPI_MISO    = PC_11,
     SPI_SCK     = PC_10,
-    SPI_CS      = PA_15,
+    SPI_CS      = PA_15_ALT0,
 
     /**** OSCILLATOR pins ****/
     RCC_OSC32_IN = PC_14,
