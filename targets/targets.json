@@ -7702,7 +7702,83 @@
         "device_name": "STM32L496ZG",
         "bootloader_supported": true
     },
+    "AP3007_V14": {
+        "inherits": ["FAMILY_STM32"],
+        "supported_form_factors": [],
+        "core": "Cortex-M4F",
+        "extra_labels_add": ["STM32L4", "STM32L496RG", "STM32L496xG"],
+        "config": {
+            "clock_source": {
+                "help": "Mask value : USE_PLL_HSE_XTAL | USE_PLL_HSE_EXTC | USE_PLL_MSI",
+                "value": "USE_PLL_HSE_XTAL",
+                "macro_name": "CLOCK_SOURCE"
+            },
+            "lpticker_lptim": {
+                "help": "This target supports LPTIM. Set value 1 to use LPTIM for LPTICKER, or 0 to use RTC wakeup timer",
+                "value": 1
+            }
+        },
+        "macros_add": [
+            "MBED_TICKLESS"
+        ],
+        "overrides": { 
+            "lpticker_delay_ticks": 4,
+            "lse_available": 0,
+            "lpuart_clock_source": "USE_LPUART_CLK_HSI"
+        },
+        "detect_code": ["0823"],
+        "device_has_add": [
+            "ANALOGOUT",
+            "CAN",
+            "CRC",
+            "SERIAL_ASYNCH",
+            "TRNG",
+            "FLASH",
+            "MPU"
+        ],
+        "release_versions": ["2", "5"],
+        "device_name": "STM32L496RG",
+        "bootloader_supported": true
+    },
     "AP3010_V10": {
+        "inherits": ["FAMILY_STM32"],
+        "supported_form_factors": [],
+        "core": "Cortex-M4F",
+        "extra_labels_add": ["STM32L4", "STM32L496RG", "STM32L496xG"],
+        "config": {
+            "clock_source": {
+                "help": "Mask value : USE_PLL_HSE_EXTC | USE_PLL_MSI",
+                "value": "USE_PLL_HSE_EXTC",
+                "macro_name": "CLOCK_SOURCE"
+            },
+            "lpticker_lptim": {
+                "help": "This target supports LPTIM. Set value 1 to use LPTIM for LPTICKER, or 0 to use RTC wakeup timer",
+                "value": 1
+            }
+        },
+        "macros_add": [
+            "MBED_TICKLESS"
+        ],
+        "overrides": { 
+            "lpticker_delay_ticks": 4,
+            "lse_available": 0,
+            "lpuart_clock_source": "USE_LPUART_CLK_HSI"
+        },
+        "detect_code": ["0823"],
+        "device_has_add": [
+            "ANALOGOUT",
+            "CAN",
+            "CRC",
+            "SERIAL_ASYNCH",
+            "TRNG",
+            "FLASH",
+            "MPU"
+        ],
+        "release_versions": ["2", "5"],
+        "device_name": "STM32L496RG",
+        "bootloader_supported": true
+    },
+    "AP3015_V10": {
         "inherits": ["FAMILY_STM32"],
         "supported_form_factors": [],
         "core": "Cortex-M4F",
