@@ -95,6 +95,7 @@ TIM_MST_LIST = { # Timer used for us ticker is hardcoded in this script
 "NUCLEO_L432KC":"TIM2",
 "NUCLEO_L496ZG":"TIM5",
 "AP3010_V10":"TIM5",
+"AP3007_V14":"TIM5",
 "NUCLEO_L496ZG_P":"TIM5",
 "NUCLEO_L433RC_P":"TIM2",
 "NUCLEO_L4R5ZI":"TIM5",
