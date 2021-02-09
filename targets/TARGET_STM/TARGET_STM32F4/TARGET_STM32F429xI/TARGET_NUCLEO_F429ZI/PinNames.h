@@ -418,6 +418,9 @@ typedef enum {
 	
 	//Extra input
 	IND4_EXTRA = PF_2,
+
+    //Extra output
+    PWR_RS485 = PF_6,
 	
 	//ADC
 	EN_ADC_VB = PC_3,
