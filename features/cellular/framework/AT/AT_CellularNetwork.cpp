@@ -282,6 +282,9 @@ nsapi_error_t AT_CellularNetwork::activate_context()
     nsapi_error_t err = NSAPI_ERROR_OK;
 
     // try to find or create context with suitable stack
+    tr_debug("pwd: %s", _pwd);
+    tr_debug("uname: %s", _uname);
+    err = do_user_authentication();
     if (!get_context()) {
         err = NSAPI_ERROR_NO_CONNECTION;
     }
@@ -425,6 +428,7 @@ nsapi_error_t AT_CellularNetwork::open_data_channel()
 nsapi_error_t AT_CellularNetwork::disconnect()
 {
 #if NSAPI_PPP_AVAILABLE
+    tr_info("Disconnect data channel in PPP mode");
     nsapi_error_t err = nsapi_ppp_disconnect(_at.get_file_handle());
     // after ppp disconnect if we wan't to use same at handler we need to set filehandle again to athandler so it
     // will set the correct sigio and nonblocking

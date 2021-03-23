@@ -1394,7 +1394,7 @@
         "macros_add": ["USB_STM_HAL", "USBHOST_OTHER"],
         "device_has_add": ["ANALOGOUT", "CAN", "SERIAL_ASYNCH", "SERIAL_FC", "TRNG", "FLASH"],
         "detect_code": ["0796"],
-        "features": ["LWIP", "BLE"],
+        "features": ["BLE"],
         "release_versions": ["2", "5"],
         "bootloader_supported": true,
         "overrides": {

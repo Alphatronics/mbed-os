@@ -42,3 +42,26 @@ nsapi_error_t UBLOX_PPP_CellularNetwork::set_access_technology_impl(RadioAccessT
     _op_act = RAT_UNKNOWN;
     return NSAPI_ERROR_UNSUPPORTED;
 }
+
+nsapi_error_t UBLOX_PPP_CellularNetwork::do_user_authentication()
+{
+    // if user has defined user name and password we need to call CGAUTH before activating or modifying context
+    if (_pwd && _uname) {
+    	 _at.clear_error();
+    	 //_at.cmd_start("AT+UAUTHREQ=?");
+    	 //_at.cmd_stop();
+        _at.cmd_start("AT+UAUTHREQ=");
+        _at.write_int(1);
+        _at.write_int(_authentication_type);
+        _at.write_string(_uname);
+        _at.write_string(_pwd);
+        _at.cmd_stop();
+        _at.resp_start();
+        _at.resp_stop();
+        if (_at.get_last_error() != NSAPI_ERROR_OK) {
+            return NSAPI_ERROR_AUTH_FAILURE;
+        }
+    }
+
+    return NSAPI_ERROR_OK;
+}

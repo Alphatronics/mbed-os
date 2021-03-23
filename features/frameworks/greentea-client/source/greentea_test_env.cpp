@@ -59,17 +59,6 @@ static void greentea_notify_completion(const int);
 static void greentea_notify_version();
 static void greentea_write_string(const char *str);
 
-/**
- *  binbeat powerup
- */
-#include "mbed.h"
-static DigitalOut disableDebugPortRX(PB_15, 0); //enable rx over debug port
-static DigitalOut debugPortForceOff(PD_10, 1); // uses inverse logic!
-static DigitalOut debugPortForceOn(PD_11, 1);
-static DigitalOut enable3v3(PG_1, 1);
-static DigitalOut enable5v(PA_1, 1);
-static DigitalOut disableVc(PC_6, 0); //enable Vcontrolled
-
 /** \brief Handle the handshake with the host
  *  \details This is contains the shared handhshake functionality that is used between
  *           GREENTEA_SETUP and GREENTEA_SETUP_UUID.

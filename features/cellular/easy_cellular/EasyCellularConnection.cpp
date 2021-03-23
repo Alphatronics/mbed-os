@@ -37,6 +37,11 @@ namespace mbed {
 
 bool EasyCellularConnection::cellular_status(int state, int next_state)
 {
+	if(!_cellularConnectionFSM)
+		return false;
+
+    before_cellular_status(state, next_state);
+
     tr_info("cellular_status: %s ==> %s", _cellularConnectionFSM->get_state_string((CellularConnectionFSM::CellularState)state),
             _cellularConnectionFSM->get_state_string((CellularConnectionFSM::CellularState)next_state));
 
@@ -92,6 +97,16 @@ EasyCellularConnection::~EasyCellularConnection()
         _cellularConnectionFSM->attach(NULL);
         delete _cellularConnectionFSM;
     }
+}
+
+nsapi_error_t EasyCellularConnection::set_automatic_reconnect(bool do_reconnect)
+{
+    nsapi_error_t err = init();
+    if (err) {
+        return err;
+    }
+    _cellularConnectionFSM->set_automatic_reconnect(do_reconnect);
+    return NSAPI_ERROR_OK;
 }
 
 nsapi_error_t EasyCellularConnection::init()
@@ -219,6 +234,8 @@ nsapi_error_t EasyCellularConnection::connect()
                         const char *uname = _APN_GET(apn_config);
                         const char *pwd = _APN_GET(apn_config);
                         tr_info("Looked up APN %s", apn);
+                        tr_info("user %s", uname);
+                        tr_info("pwd %s", pwd);
                         err = _cellularConnectionFSM->get_network()->set_credentials(apn, uname, pwd);
                     }
                 }
@@ -246,6 +263,7 @@ nsapi_error_t EasyCellularConnection::connect()
 
 nsapi_error_t EasyCellularConnection::disconnect()
 {
+    tr_info("disconnect");
     _credentials_err = NSAPI_ERROR_OK;
     _is_connected = false;
     _is_initialized = false;
@@ -255,14 +273,12 @@ nsapi_error_t EasyCellularConnection::disconnect()
 #endif // #if USE_APN_LOOKUP
 
     nsapi_error_t err = NSAPI_ERROR_OK;
-    if (_cellularConnectionFSM && _cellularConnectionFSM->get_network()) {
-        err = _cellularConnectionFSM->get_network()->disconnect();
+    if (_cellularConnectionFSM) {
+        err = _cellularConnectionFSM->disconnect();
     }
 
-    if (err == NSAPI_ERROR_OK) {
-        delete _cellularConnectionFSM;
-        _cellularConnectionFSM = NULL;
-    }
+    delete _cellularConnectionFSM;
+    _cellularConnectionFSM = NULL;
 
     return err;
 }
@@ -338,6 +354,10 @@ void EasyCellularConnection::set_plmn(const char *plmn)
         }
         _cellularConnectionFSM->set_plmn(plmn);
     }
+}
+
+void EasyCellularConnection::before_cellular_status(int state, int next_state)
+{
 }
 
 NetworkStack *EasyCellularConnection::get_stack()

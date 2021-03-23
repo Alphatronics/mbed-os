@@ -43,6 +43,7 @@ volatile uint32_t LPTICKER_RTC_time = 0;
 static int RTC_inited = 0;
 
 static RTC_HandleTypeDef RtcHandle;
+RTC_HandleTypeDef * GlobalRtcHandle = &RtcHandle;
 
 void rtc_init(void)
 {
@@ -341,6 +342,11 @@ uint32_t rtc_read_lp(void)
 
 void rtc_set_wake_up_timer(timestamp_t timestamp)
 {
+    rtc_set_wake_up_timer_ex(timestamp, RTC_WAKEUPCLOCK_RTCCLK_DIV4);
+}
+
+void rtc_set_wake_up_timer_ex(timestamp_t timestamp, uint32_t WakeUpClock)
+{
     uint32_t WakeUpCounter;
     uint32_t current_lp_time;
 
@@ -359,7 +365,7 @@ void rtc_set_wake_up_timer(timestamp_t timestamp)
     core_util_critical_section_enter();
     RtcHandle.Instance = RTC;
     HAL_RTCEx_DeactivateWakeUpTimer(&RtcHandle);
-    if (HAL_RTCEx_SetWakeUpTimer_IT(&RtcHandle, WakeUpCounter, RTC_WAKEUPCLOCK_RTCCLK_DIV4) != HAL_OK) {
+    if (HAL_RTCEx_SetWakeUpTimer_IT(&RtcHandle, WakeUpCounter, WakeUpClock) != HAL_OK) {
         error("rtc_set_wake_up_timer init error\n");
     }
 

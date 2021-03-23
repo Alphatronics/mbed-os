@@ -37,6 +37,14 @@ public:
     EasyCellularConnection(bool debug = false);
     virtual ~EasyCellularConnection();
 
+    /** By default automatic reconnecting is on. This means that when we get disconnected callback
+     *  we will try to connect automatically. By this method application can toggle this behavior.
+     *
+     *  @param      do_reconnect true for automatic reconnect, false to not reconnect automatically
+     *  @return     NSAPI_ERROR_OK on success, or negative error code on failure
+     */
+    nsapi_error_t set_automatic_reconnect(bool do_reconnect);
+
 public:
     /** Set the Cellular network credentials
      *
@@ -156,6 +164,11 @@ protected:
      */
     virtual NetworkStack *get_stack();
 
+    /**
+     * called before cellular_status
+     * */
+    virtual void before_cellular_status(int state, int next_state);
+
 private:
     /** Callback for cellular status changes
      *
@@ -176,7 +189,11 @@ private:
 
     UARTSerial _cellularSerial;
     rtos::Semaphore _cellularSemaphore;
+
+protected:
     CellularConnectionFSM *_cellularConnectionFSM;
+
+private:
     nsapi_error_t _credentials_err;
     Callback<void(nsapi_event_t, intptr_t)> _status_cb;
 };
