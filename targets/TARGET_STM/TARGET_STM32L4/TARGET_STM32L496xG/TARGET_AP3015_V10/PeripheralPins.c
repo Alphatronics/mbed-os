@@ -28,8 +28,6 @@
  *******************************************************************************
  */
 
-//!!!!!!!!!!!!!!!!!!!!!!!!modified by Alphatroncs from STM32L496ZG to STM32L496RG
-
 #include "PeripheralPins.h"
 #include "mbed_toolchain.h"
 

@@ -28,8 +28,6 @@
  *******************************************************************************
  */
 
-//Modified by Alphatronics
-
 #ifndef MBED_PINNAMES_H
 #define MBED_PINNAMES_H
 
@@ -65,7 +63,6 @@ typedef enum {
     PA_5_ALT0 = PA_5 | ALT0,
     PA_6  = 0x06,
     PA_6_ALT0 = PA_6 | ALT0,
-
     PA_7  = 0x07,
     PA_7_ALT0 = PA_7 | ALT0,
     PA_7_ALT1 = PA_7 | ALT1,
@@ -165,58 +162,6 @@ typedef enum {
     PD_14 = 0x3E,
     PD_15 = 0x3F,
 
-//!    PE_0  = 0x40,
-//!    PE_1  = 0x41,
-//!    PE_2  = 0x42,
-//!    PE_3  = 0x43,
-//!    PE_4  = 0x44,
-//!    PE_5  = 0x45,
-//!    PE_6  = 0x46,
-//!    PE_7  = 0x47,
-//!    PE_8  = 0x48,
-//!    PE_9  = 0x49,
-//!    PE_10 = 0x4A,
-//!    PE_11 = 0x4B,
-//!    PE_12 = 0x4C,
-//!    PE_13 = 0x4D,
-//!    PE_14 = 0x4E,
-//!    PE_15 = 0x4F,
-
-//!    PF_0  = 0x50,
-//!    PF_1  = 0x51,
-//!    PF_2  = 0x52,
-//!    PF_3  = 0x53,
-//!    PF_4  = 0x54,
-//!    PF_5  = 0x55,
-//!    PF_6  = 0x56,
-//!    PF_7  = 0x57,
-//!    PF_8  = 0x58,
-//!    PF_9  = 0x59,
-//!    PF_9_ALT0 = PF_9 | ALT0,
-//!    PF_10 = 0x5A,
-//!    PF_11 = 0x5B,
-//!    PF_12 = 0x5C,
-//!    PF_13 = 0x5D,
-//!    PF_14 = 0x5E,
-//!    PF_15 = 0x5F,
-
-//!    PG_0  = 0x60,
-//!    PG_1  = 0x61,
-//!    PG_2  = 0x62,
-//!    PG_3  = 0x63,
-//!    PG_4  = 0x64,
-//!    PG_5  = 0x65,
-//!    PG_6  = 0x66,
-//!    PG_7  = 0x67,
-//!    PG_8  = 0x68,
-//!    PG_9  = 0x69,
-//!    PG_10 = 0x6A,
-//!    PG_11 = 0x6B,
-//!    PG_12 = 0x6C,
-//!    PG_13 = 0x6D,
-//!    PG_14 = 0x6E,
-//!    PG_15 = 0x6F,
-
     PH_0  = 0x70,
     PH_1  = 0x71,
 
@@ -225,41 +170,16 @@ typedef enum {
     ADC_VREF = 0xF1,
     ADC_VBAT = 0xF2,
 
-    // Arduino J3 connector namings
-//    A0          = PA_3,
-//    A1          = PC_0,
-//    A2          = PC_3,
-//    A3          = PC_1,
-//    A4          = PC_4,
-//    A5          = PC_5,
-//    D0          = PD_9,
-//    D1          = PD_8,
-//    D2          = PF_15,
-//    D3          = PE_13,
-//    D4          = PF_14,
-//    D5          = PE_11,
-//    D6          = PE_9,
-//    D7          = PF_13,
-//    D8          = PF_12,
-//    D9          = PD_15,
-//    D10         = PD_14,
-//    D11         = PA_7,
-//    D12         = PA_6,
-//    D13         = PA_5,
-//    D14         = PB_9,
-//    D15         = PB_8,
-
     // STDIO for console print
 #ifdef MBED_CONF_TARGET_STDIO_UART_TX
     STDIO_UART_TX = MBED_CONF_TARGET_STDIO_UART_TX,
 #else
-    STDIO_UART_TX = PA_9, //PA_2
+    STDIO_UART_TX = PA_9,
 #endif
-
 #ifdef MBED_CONF_TARGET_STDIO_UART_RX
     STDIO_UART_RX = MBED_CONF_TARGET_STDIO_UART_RX,
 #else
-    STDIO_UART_RX = PA_10, //PA_3
+    STDIO_UART_RX = PA_10,
 #endif
 
     // Not connected
@@ -269,12 +189,8 @@ typedef enum {
     //LED1 also used for mbed errors
     LED1        = PB_7,     //also used by application (blue led)
     LED2        = PB_2,
-//    LED3        = PB_14,
-//    LED4        = LED1,
-//    USER_BUTTON = PC_13,
 
     // Standardized button names
-//    BUTTON1 = USER_BUTTON,
     SERIAL_TX   = STDIO_UART_TX, // Virtual Com Port
     SERIAL_RX   = STDIO_UART_RX, // Virtual Com Port
     USBTX       = STDIO_UART_TX, // Virtual Com Port
@@ -288,18 +204,6 @@ typedef enum {
     SPI_SCK     = PA_5,
     SPI_CS      = PA_4,
 
-//    PWM_OUT     = D9,
-
-    /**** USB pins ****/
-//    USB_OTG_FS_DM = PA_11,
-//    USB_OTG_FS_DP = PA_12,
-//    USB_OTG_FS_ID = PA_10,
-//    USB_OTG_FS_NOE = PC_9,
-//    USB_OTG_FS_NOE_ALT0 = PA_13,
-//    USB_OTG_FS_SOF = PA_8,
-//    USB_OTG_FS_SOF_ALT0 = PA_14,
-//    USB_OTG_FS_VBUS = PA_9,
-
     /**** OSCILLATOR pins ****/
 //!    RCC_OSC32_IN = PC_14,
 //!    RCC_OSC32_OUT = PC_15,
@@ -312,23 +216,10 @@ typedef enum {
     SYS_JTDO_SWO = PB_3,
     SYS_JTMS_SWDIO = PA_13,
     SYS_JTRST = PB_4,
-//    SYS_PVD_IN = PB_7,
-//    SYS_TRACECLK = PE_2,
-//    SYS_TRACED0 = PE_3,
     SYS_TRACED0_ALT0 = PC_1,
-//    SYS_TRACED1 = PE_4,
     SYS_TRACED1_ALT0 = PC_10,
-//    SYS_TRACED2 = PE_5,
     SYS_TRACED2_ALT0 = PD_2,
-//    SYS_TRACED3 = PE_6,
     SYS_TRACED3_ALT0 = PC_12,
-//!    SYS_WKUP1 = PA_0,
-//!    SYS_WKUP2 = PC_13,
-//    SYS_WKUP3 = PE_6,
-//!    SYS_WKUP4 = PA_2,
-//!    SYS_WKUP5 = PC_5,
-
-
 } PinName;
 
 #ifdef __cplusplus

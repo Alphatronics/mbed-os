@@ -26,7 +26,7 @@
   * AHBCLK (MHz)        | 80
   * APB1CLK (MHz)       | 80
   * APB2CLK (MHz)       | 80
-  * USB capable         | YES
+  * USB capable         | NO
   *-----------------------------------------------------------------------------
 **/
 
@@ -47,7 +47,7 @@
 #define USE_PLL_HSI      0x2 // Use HSI internal clock
 #define USE_PLL_MSI      0x1 // Use MSI internal clock
 
-#define DEBUG_MCO        (2) // Output the MCO on PA8 for debugging (0=OFF, 1=SYSCLK, 2=HSE, 3=HSI, 4=MSI)
+#define DEBUG_MCO        (0) // Output the MCO on PA8 for debugging (0=OFF, 1=SYSCLK, 2=HSE, 3=HSI, 4=MSI)
 
 #if ( ((CLOCK_SOURCE) & USE_PLL_HSE_XTAL) || ((CLOCK_SOURCE) & USE_PLL_HSE_EXTC) )
 uint8_t SetSysClock_PLL_HSE(uint8_t bypass);

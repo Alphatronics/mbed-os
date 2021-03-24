@@ -182,6 +182,9 @@ typedef enum {
     STDIO_UART_RX = PA_10,
 #endif
 
+    // Not connected
+    NC = (int)0xFFFFFFFF,
+
     // Generic signals namings
     LED1        = PB_14,
     LED2        = LED1,
@@ -195,8 +198,10 @@ typedef enum {
     SERIAL_RX   = STDIO_UART_RX, // Virtual Com Port
     USBTX       = STDIO_UART_TX, // Virtual Com Port
     USBRX       = STDIO_UART_RX, // Virtual Com Port
+
     I2C_SCL     = PB_6,
     I2C_SDA     = PB_9,
+
     SPI_MOSI    = PB_5_ALT0,
     SPI_MISO    = PC_11,
     SPI_SCK     = PC_10,
@@ -217,9 +222,6 @@ typedef enum {
     SYS_TRACED1_ALT0 = PC_10,
     SYS_TRACED2_ALT0 = PD_2,
     SYS_TRACED3_ALT0 = PC_12,
-
-    // Not connected
-    NC = (int)0xFFFFFFFF
 } PinName;
 
 #ifdef __cplusplus
