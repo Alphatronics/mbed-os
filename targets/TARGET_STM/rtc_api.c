@@ -353,13 +353,17 @@ uint32_t rtc_read_lp(void)
 
 void rtc_set_wake_up_timer(timestamp_t timestamp)
 {
+    rtc_set_wake_up_timer_ex(timestamp, RTC_WAKEUPCLOCK_RTCCLK_DIV4);
+}
+
+void rtc_set_wake_up_timer_ex(timestamp_t timestamp, uint32_t WakeUpClock)
+{
     /* RTC periodic auto wake up timer is used
     *  This WakeUpTimer is loaded to an init value => WakeUpCounter
     *  then timer starts counting down (even in low-power modes)
     *  When it reaches 0, the WUTF flag is set in the RTC_ISR register
     */
     uint32_t WakeUpCounter;
-    uint32_t WakeUpClock = RTC_WAKEUPCLOCK_RTCCLK_DIV4;
 
     core_util_critical_section_enter();
 
