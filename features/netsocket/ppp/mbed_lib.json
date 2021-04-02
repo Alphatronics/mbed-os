@@ -1,6 +1,8 @@
 {
     "name": "ppp",
-    "macros": ["NSAPI_PPP_AVAILABLE=(MBED_CONF_PPP_ENABLED || MBED_CONF_LWIP_PPP_ENABLED)"],    
+    "macros": [
+        "NSAPI_PPP_AVAILABLE=(MBED_CONF_PPP_ENABLED || MBED_CONF_LWIP_PPP_ENABLED)"
+    ],
     "config": {
         "enabled": {
             "help": "Enable support for PPP interfaces",
@@ -47,6 +49,9 @@
         },
         "CY8CKIT_062S2_43012": {
             "thread-stacksize": 896
+        },
+        "BINBEAT_V1_X": {
+            "enabled": true
         }
     }
 }

@@ -169,7 +169,7 @@
             "mem-size": 12800
         },
         "UBLOX_EVK_ODIN_W2": {
-            "pbuf-pool-size" :  10
+            "pbuf-pool-size": 10
         },
         "STM": {
             "mem-size": 2310
@@ -213,8 +213,8 @@
             "default-thread-stacksize": 640,
             "memp-num-tcp-seg": 24,
             "tcp-socket-max": 10,
-            "udp-socket-max":10,
-            "socket-max":18,
+            "udp-socket-max": 10,
+            "socket-max": 18,
             "tcp-mss": 1540,
             "tcp-snd-buf": "(6 * TCP_MSS)",
             "tcp-wnd": "(TCP_MSS * 6)",
@@ -229,6 +229,10 @@
         },
         "MTS_DRAGONFLY_F411RE": {
             "tcpip-thread-stacksize": 1600
+        },
+        "BINBEAT_V1_X": {
+            "ethernet-enabled": false,
+            "mem-size": 16362
         }
     }
 }

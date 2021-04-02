@@ -3,39 +3,39 @@
     "config": {
         "present": 1,
         "default-stack": {
-            "help" : "Default stack to be used, valid values: LWIP, NANOSTACK.",
-            "value" : "LWIP"
+            "help": "Default stack to be used, valid values: LWIP, NANOSTACK.",
+            "value": "LWIP"
         },
-        "default-wifi-ssid" : {
-            "help" : "Default Wi-Fi SSID.",
+        "default-wifi-ssid": {
+            "help": "Default Wi-Fi SSID.",
             "value": null
         },
-        "default-wifi-password" : {
-            "help" : "Password for the default Wi-Fi network.",
+        "default-wifi-password": {
+            "help": "Password for the default Wi-Fi network.",
             "value": null
         },
-        "default-wifi-security" : {
-            "help" : "Wi-Fi security protocol, valid values are WEP, WPA, WPA2, WPA/WPA2.",
-            "value" : "NONE"
+        "default-wifi-security": {
+            "help": "Wi-Fi security protocol, valid values are WEP, WPA, WPA2, WPA/WPA2.",
+            "value": "NONE"
         },
-        "default-cellular-plmn" : {
-            "help" : "Default Public Land Mobile Network for cellular connection.",
+        "default-cellular-plmn": {
+            "help": "Default Public Land Mobile Network for cellular connection.",
             "value": null
         },
-        "default-cellular-sim-pin" : {
-            "help" : "PIN for the default SIM card.",
+        "default-cellular-sim-pin": {
+            "help": "PIN for the default SIM card.",
             "value": null
         },
-        "default-cellular-apn" : {
-            "help" : "Default cellular Access Point Name.",
+        "default-cellular-apn": {
+            "help": "Default cellular Access Point Name.",
             "value": null
         },
-        "default-cellular-username" : {
-            "help" : "Username for the default cellular network.",
+        "default-cellular-username": {
+            "help": "Username for the default cellular network.",
             "value": null
         },
-        "default-cellular-password" : {
-            "help" : "Password for the default cellular network.",
+        "default-cellular-password": {
+            "help": "Password for the default cellular network.",
             "value": null
         },
         "default-mesh-type": {
@@ -66,7 +66,7 @@
             "help": "Maximum number of socket statistics cached",
             "value": 10
         },
-        "offload-tlssocket" : {
+        "offload-tlssocket": {
             "help": "Use external TLSSocket implementation. Used network stack must support external TLSSocket setsockopt values (see nsapi_types.h)",
             "value": null
         }
@@ -80,6 +80,9 @@
         },
         "TB_SENSE_12": {
             "nsapi.default-mesh-type": "LOWPAN"
+        },
+        "BINBEAT_V1_X": {
+            "default-cellular-apn": "\"EM\""
         }
     }
 }
