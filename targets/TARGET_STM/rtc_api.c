@@ -43,6 +43,7 @@ volatile uint32_t LPTICKER_RTC_time = 0;
 static int RTC_inited = 0;
 
 static RTC_HandleTypeDef RtcHandle;
+RTC_HandleTypeDef * GlobalRtcHandle = &RtcHandle;
 
 void rtc_init(void)
 {
@@ -370,8 +371,12 @@ void rtc_set_wake_up_timer(timestamp_t timestamp)
     *  then timer starts counting down (even in low-power modes)
     *  When it reaches 0, the WUTF flag is set in the RTC_ISR register
     */
+    rtc_set_wake_up_timer_ex(timestamp, RTC_WAKEUPCLOCK_RTCCLK_DIV4);
+}
+
+void rtc_set_wake_up_timer_ex(timestamp_t timestamp, uint32_t WakeUpClock)
+{
     uint32_t WakeUpCounter;
-    uint32_t WakeUpClock = RTC_WAKEUPCLOCK_RTCCLK_DIV4;
 
     core_util_critical_section_enter();
 

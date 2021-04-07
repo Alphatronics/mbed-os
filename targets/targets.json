@@ -2817,7 +2817,7 @@
             "STM32F429xI",
             "PSA"
         ],
-        "components_add": ["FLASHIAP"],
+        "components_add": ["FLASHIAP", "SD"],
         "device_has_add": [
             "ANALOGOUT",
             "SERIAL_ASYNCH",
