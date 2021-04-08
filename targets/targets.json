@@ -172,7 +172,9 @@
     },
     "LPCTarget": {
         "inherits": ["Target"],
-        "post_binary_hook": { "function": "LPCTargetCode.lpc_patch" },
+        "post_binary_hook": {
+            "function": "LPCTargetCode.lpc_patch"
+        },
         "public": false
     },
     "LPC11C24": {
@@ -2021,7 +2023,9 @@
             "init-us-ticker-at-boot": true
         },
         "release_versions": ["2", "5"],
-        "post_binary_hook": { "function": "LPCTargetCode.lpc_patch" },
+        "post_binary_hook": {
+            "function": "LPCTargetCode.lpc_patch"
+        },
         "device_name": "LPC54114J256BD64"
     },
     "MCU_LPC546XX": {
@@ -2059,7 +2063,9 @@
             "network-default-interface-type": "ETHERNET"
         },
         "device_name": "LPC54628J512ET180",
-        "post_binary_hook": { "function": "LPCTargetCode.lpc_patch" }
+        "post_binary_hook": {
+            "function": "LPCTargetCode.lpc_patch"
+        }
     },
     "LPC546XX": {
         "supported_form_factors": ["ARDUINO"],
@@ -2120,7 +2126,9 @@
             "FLASH",
             "STDIO_MESSAGES"
         ],
-        "post_binary_hook": { "function": "LPC55S69Code.binary_hook" },
+        "post_binary_hook": {
+            "function": "LPC55S69Code.binary_hook"
+        },
         "secure_image_filename": "tfm.bin",
         "overrides": {
             "non-secure-rom-start": "0x00030000",
@@ -2206,7 +2214,9 @@
             }
         },
         "detect_code": ["0791"],
-        "overrides": { "lse_available": 0 },
+        "overrides": {
+            "lse_available": 0
+        },
         "macros_add": [
             "CMSIS_VECTAB_VIRTUAL",
             "CMSIS_VECTAB_VIRTUAL_HEADER_FILE=\"cmsis_nvic.h\""
@@ -2230,7 +2240,9 @@
             }
         },
         "detect_code": ["0785"],
-        "overrides": { "lse_available": 0 },
+        "overrides": {
+            "lse_available": 0
+        },
         "macros_add": [
             "CMSIS_VECTAB_VIRTUAL",
             "CMSIS_VECTAB_VIRTUAL_HEADER_FILE=\"cmsis_nvic.h\""
@@ -2388,7 +2400,9 @@
                 "macro_name": "CLOCK_SOURCE"
             }
         },
-        "overrides": { "lse_available": 0 },
+        "overrides": {
+            "lse_available": 0
+        },
         "detect_code": ["0775"],
         "default_lib": "small",
         "device_has_add": ["ANALOGOUT", "CAN", "CRC"],
@@ -2486,7 +2500,9 @@
         },
         "macros_add": ["HSE_VALUE=25000000"],
         "device_has_add": ["SERIAL_ASYNCH", "FLASH", "MPU"],
-        "overrides": { "lse_available": 0 },
+        "overrides": {
+            "lse_available": 0
+        },
         "release_versions": ["2", "5"],
         "device_name": "STM32F401VE"
     },
@@ -2511,7 +2527,9 @@
                 "value": 1
             }
         },
-        "overrides": { "lpticker_delay_ticks": 4 },
+        "overrides": {
+            "lpticker_delay_ticks": 4
+        },
         "detect_code": ["0744"],
         "device_has_add": [
             "ANALOGOUT",
@@ -2666,7 +2684,9 @@
                 "value": 1
             }
         },
-        "overrides": { "lpticker_delay_ticks": 4 },
+        "overrides": {
+            "lpticker_delay_ticks": 4
+        },
         "detect_code": ["0743"],
         "macros_add": [],
         "device_has_add": [
@@ -2704,7 +2724,9 @@
                 "value": 1
             }
         },
-        "overrides": { "lpticker_delay_ticks": 4 },
+        "overrides": {
+            "lpticker_delay_ticks": 4
+        },
         "detect_code": ["0743"],
         "macros_add": [],
         "device_has_add": [
@@ -2794,7 +2816,7 @@
             },
             "clock_source": {
                 "help": "Mask value : USE_PLL_HSE_EXTC | USE_PLL_HSE_XTAL (need HW patch) | USE_PLL_HSI",
-                "value": "USE_PLL_HSE_EXTC|USE_PLL_HSI",
+                "value": "USE_PLL_HSE_XTAL|USE_PLL_HSI",
                 "macro_name": "CLOCK_SOURCE"
             },
             "modem_is_on_board": {
@@ -3292,7 +3314,9 @@
             "EXTRA_IDLE_STACK_REQUIRED",
             "MBED_TICKLESS"
         ],
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "supported_form_factors": ["ARDUINO", "STMOD", "PMOD"],
         "detect_code": ["0814"],
         "device_has_add": ["ANALOGOUT", "CAN", "CRC", "TRNG", "FLASH", "MPU"],
@@ -3326,7 +3350,9 @@
             "EXTRA_IDLE_STACK_REQUIRED",
             "MBED_TICKLESS"
         ],
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "supported_form_factors": ["ARDUINO", "STMOD", "PMOD"],
         "device_has_add": ["ANALOGOUT", "CAN", "CRC", "TRNG", "FLASH", "MPU"],
         "bootloader_supported": true
@@ -3381,7 +3407,9 @@
                 "value": 1
             }
         },
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "macros_add": ["EXTRA_IDLE_STACK_REQUIRED"],
         "detect_code": ["0780"],
         "device_has_add": ["CRC", "FLASH"],
@@ -3406,7 +3434,9 @@
             }
         },
         "macros_add": ["EXTRA_IDLE_STACK_REQUIRED"],
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0790"],
         "device_has_add": ["CRC", "FLASH"],
         "default_lib": "small",
@@ -3430,7 +3460,9 @@
             }
         },
         "macros_add": ["EXTRA_IDLE_STACK_REQUIRED"],
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0715"],
         "device_has_add": ["ANALOGOUT", "CRC", "SERIAL_ASYNCH", "FLASH", "MPU"],
         "default_lib": "small",
@@ -3454,7 +3486,9 @@
             }
         },
         "macros_add": ["MBED_TICKLESS", "EXTRA_IDLE_STACK_REQUIRED"],
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0760"],
         "device_has_add": [
             "ANALOGOUT",
@@ -3505,7 +3539,9 @@
             "MBED_TICKLESS",
             "EXTRA_IDLE_STACK_REQUIRED"
         ],
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0770"],
         "device_has_add": [
             "ANALOGOUT",
@@ -3541,7 +3577,9 @@
             "MBED_TICKLESS",
             "EXTRA_IDLE_STACK_REQUIRED"
         ],
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0779"],
         "device_has_add": [
             "ANALOGOUT",
@@ -3567,7 +3605,9 @@
                 "macro_name": "CLOCK_SOURCE"
             }
         },
-        "overrides": { "lse_available": 0 },
+        "overrides": {
+            "lse_available": 0
+        },
         "release_versions": ["5"],
         "device_has_add": [
             "ANALOGOUT",
@@ -3604,7 +3644,9 @@
                 "value": 1
             }
         },
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0765"],
         "macros_add": [
             "STM32L476xx",
@@ -3667,7 +3709,9 @@
                 "value": 1
             }
         },
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0827"],
         "macros_add": [
             "STM32L486xx",
@@ -3705,7 +3749,9 @@
                 "macro_name": "CLOCK_SOURCE"
             }
         },
-        "overrides": { "lpuart_clock_source": "USE_LPUART_CLK_HSI" },
+        "overrides": {
+            "lpuart_clock_source": "USE_LPUART_CLK_HSI"
+        },
         "detect_code": ["0460"],
         "macros_add": [
             "STM32L486xx",
@@ -3892,7 +3938,9 @@
             "STM32F303xC",
             "STM32F303VC"
         ],
-        "overrides": { "lse_available": 0 },
+        "overrides": {
+            "lse_available": 0
+        },
         "config": {
             "clock_source": {
                 "help": "Mask value : USE_PLL_HSE_EXTC | USE_PLL_HSI",
@@ -3916,7 +3964,9 @@
                 "macro_name": "CLOCK_SOURCE"
             }
         },
-        "overrides": { "lse_available": 0 },
+        "overrides": {
+            "lse_available": 0
+        },
         "detect_code": ["0810"],
         "device_has_add": ["ANALOGOUT", "CRC", "SERIAL_ASYNCH"],
         "default_lib": "small",
@@ -3944,7 +3994,9 @@
                 "value": "USE_USB_OTG_FS"
             }
         },
-        "overrides": { "lse_available": 0 },
+        "overrides": {
+            "lse_available": 0
+        },
         "device_has_add": ["ANALOGOUT", "TRNG", "FLASH", "MPU"],
         "release_versions": ["2", "5"],
         "device_name": "STM32F407VG"
@@ -3972,7 +4024,9 @@
             }
         },
         "macros_add": ["USB_STM_HAL"],
-        "overrides": { "lse_available": 0 },
+        "overrides": {
+            "lse_available": 0
+        },
         "device_has_add": [
             "ANALOGOUT",
             "TRNG",
@@ -4007,7 +4061,9 @@
                 "value": "USE_USB_HS_IN_FS"
             }
         },
-        "overrides": { "lse_available": 0 },
+        "overrides": {
+            "lse_available": 0
+        },
         "device_has_add": [
             "ANALOGOUT",
             "CAN",
@@ -4133,7 +4189,9 @@
             }
         },
         "macros_add": ["MBED_TICKLESS", "EXTRA_IDLE_STACK_REQUIRED"],
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0833"],
         "device_has_add": [
             "ANALOGOUT",
@@ -4285,7 +4343,9 @@
                 "value": 1
             }
         },
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "supported_form_factors": ["ARDUINO"],
         "detect_code": ["0764"],
         "macros_add": [
@@ -4359,7 +4419,9 @@
                 "value": 1
             }
         },
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0820"],
         "macros_add": [
             "STM32L476xx",
@@ -4397,7 +4459,9 @@
                 "value": 1
             }
         },
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["1500"],
         "macros_add": [
             "STM32L476xx",
@@ -4465,7 +4529,9 @@
                 "macro_name": "MODEM_ON_BOARD_UART"
             }
         },
-        "overrides": { "lse_available": 0 },
+        "overrides": {
+            "lse_available": 0
+        },
         "macros_add": ["HSE_VALUE=26000000"],
         "post_binary_hook": {
             "function": "MTSCode.combine_bins_mts_dragonfly",
@@ -4778,7 +4844,9 @@
     "MTB_UBLOX_ODIN_W2": {
         "inherits": ["MODULE_UBLOX_ODIN_W2"],
         "device_has_add": [],
-        "overrides": { "lse_available": 0 },
+        "overrides": {
+            "lse_available": 0
+        },
         "release_versions": ["5"]
     },
     "OKDO_ODIN_W2": {
@@ -4859,7 +4927,9 @@
         "default_toolchain": "uARM",
         "program_cycle_s": 1.5,
         "extra_labels_add": ["STM32L1", "STM32L151RC"],
-        "overrides": { "lse_available": 0 },
+        "overrides": {
+            "lse_available": 0
+        },
         "supported_toolchains": ["ARM", "uARM", "GCC_ARM"],
         "device_has_add": ["ANALOGOUT", "MPU"],
         "default_lib": "small",
@@ -5390,7 +5460,9 @@
         ],
         "detect_code": ["1019"],
         "release_versions": ["2", "5"],
-        "overrides": { "uart_hwfc": 0 },
+        "overrides": {
+            "uart_hwfc": 0
+        },
         "device_name": "nRF51822_xxAA"
     },
     "TY51822R3_BOOT": {
@@ -5664,7 +5736,9 @@
             "MBED_MPU_CUSTOM"
         ],
         "extra_labels_add": ["MUSCA_A1_NS", "PSA", "TFM"],
-        "post_binary_hook": { "function": "ArmMuscaA1Code.binary_hook" },
+        "post_binary_hook": {
+            "function": "ArmMuscaA1Code.binary_hook"
+        },
         "secure_image_filename": "tfm.bin",
         "overrides": {
             "non-secure-rom-start": "0x000a0400",
@@ -6010,7 +6084,9 @@
     },
     "EFM32GG_STK3700": {
         "inherits": ["EFM32GG990F1024"],
-        "progen": { "target": "efm32gg-stk" },
+        "progen": {
+            "target": "efm32gg-stk"
+        },
         "device_has": [
             "ANALOGIN",
             "ANALOGOUT",
@@ -6169,7 +6245,9 @@
     },
     "EFM32WG_STK3800": {
         "inherits": ["EFM32WG990F256"],
-        "progen": { "target": "efm32wg-stk" },
+        "progen": {
+            "target": "efm32wg-stk"
+        },
         "device_has": [
             "ANALOGIN",
             "ANALOGOUT",
@@ -7290,7 +7368,9 @@
     },
     "NRF51_DONGLE": {
         "inherits": ["MCU_NRF51_32K_UNIFIED"],
-        "progen": { "target": "nrf51-dongle" },
+        "progen": {
+            "target": "nrf51-dongle"
+        },
         "device_has": [
             "USTICKER",
             "LPTICKER",
@@ -7312,7 +7392,9 @@
     },
     "OSHCHIP": {
         "inherits": ["MCU_NRF51_32K_UNIFIED"],
-        "overrides": { "lf_clock_src": "NRF_LF_SRC_RC" },
+        "overrides": {
+            "lf_clock_src": "NRF_LF_SRC_RC"
+        },
         "device_has": [
             "USTICKER",
             "LPTICKER",
@@ -7928,7 +8010,9 @@
         },
         "inherits": ["Target"],
         "macros_add": ["LPTICKER_DELAY_TICKS=4"],
-        "progen": { "target": "numaker-pfm-m453" },
+        "progen": {
+            "target": "numaker-pfm-m453"
+        },
         "device_has": [
             "USTICKER",
             "LPTICKER",
@@ -8124,14 +8208,18 @@
         "supported_form_factors": ["ARDUINO"],
         "inherits": ["MCU_NRF51_32K"],
         "detect_code": ["C006"],
-        "overrides": { "uart_hwfc": 0 },
+        "overrides": {
+            "uart_hwfc": 0
+        },
         "extra_labels_add": ["VBLUNO51"]
     },
     "VBLUNO51_BOOT": {
         "supported_form_factors": ["ARDUINO"],
         "inherits": ["MCU_NRF51_32K_BOOT"],
         "detect_code": ["C006"],
-        "overrides": { "uart_hwfc": 0 },
+        "overrides": {
+            "uart_hwfc": 0
+        },
         "extra_labels_add": ["VBLUNO51"],
         "macros_add": ["TARGET_VBLUNO51"]
     },
@@ -8139,7 +8227,9 @@
         "supported_form_factors": ["ARDUINO"],
         "inherits": ["MCU_NRF51_32K_OTA"],
         "detect_code": ["C006"],
-        "overrides": { "uart_hwfc": 0 },
+        "overrides": {
+            "uart_hwfc": 0
+        },
         "extra_labels_add": ["VBLUNO51"],
         "macros_add": ["TARGET_VBLUNO51"]
     },
@@ -8147,7 +8237,9 @@
         "supported_form_factors": ["ARDUINO"],
         "inherits": ["MCU_NRF51_32K_UNIFIED"],
         "detect_code": ["C006"],
-        "overrides": { "uart_hwfc": 0 },
+        "overrides": {
+            "uart_hwfc": 0
+        },
         "device_has": [
             "USTICKER",
             "LPTICKER",
@@ -8197,7 +8289,9 @@
             "MBED_TICKLESS",
             "EXTRA_IDLE_STACK_REQUIRED"
         ],
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0822"],
         "device_has_add": [
             "ANALOGOUT",
@@ -8235,7 +8329,9 @@
             "MBED_TICKLESS",
             "EXTRA_IDLE_STACK_REQUIRED"
         ],
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0823"],
         "device_has_add": [
             "ANALOGOUT",
@@ -8277,7 +8373,9 @@
             "MBED_TICKLESS",
             "EXTRA_IDLE_STACK_REQUIRED"
         ],
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0776"],
         "device_has_add": [
             "ANALOGOUT",
@@ -8319,7 +8417,9 @@
             "MBED_TICKLESS",
             "EXTRA_IDLE_STACK_REQUIRED"
         ],
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0774"],
         "device_has_add": [
             "ANALOGOUT",
@@ -8358,7 +8458,9 @@
             }
         },
         "macros_add": ["MBED_TICKLESS", "EXTRA_IDLE_STACK_REQUIRED"],
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "detect_code": ["0839"],
         "device_has_add": [
             "CRC",
@@ -8394,7 +8496,9 @@
                 "value": 1
             }
         },
-        "overrides": { "lpticker_delay_ticks": 0 },
+        "overrides": {
+            "lpticker_delay_ticks": 0
+        },
         "device_has_add": [
             "ANALOGOUT",
             "CRC",
@@ -8754,7 +8858,9 @@
         "extra_labels_add": ["M23_NS", "NU_PREBUILD_SECURE"],
         "macros_add": ["MBED_TZ_DEFAULT_ACCESS=1"],
         "components_add": ["FLASHIAP"],
-        "post_binary_hook": { "function": "M2351Code.merge_secure" },
+        "post_binary_hook": {
+            "function": "M2351Code.merge_secure"
+        },
         "secure_image_filename": "NuMaker-mbed-TZ-secure-example.hex",
         "mbed_rom_start": "0x10010000",
         "mbed_rom_size": "0x70000",
