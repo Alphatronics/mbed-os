@@ -26,7 +26,7 @@
 #endif // #if DEVICE_SERIAL
 #include "ThisThread.h"
 
-#define NETWORK_TIMEOUT 30 * 60 * 1000 // 30 minutes
+#define NETWORK_TIMEOUT 10 * 60 * 1000 // 10 minutes
 #define DEVICE_TIMEOUT 5 * 60 * 1000 // 5 minutes
 // Timeout to wait for URC indicating ciot optimization support from network
 #define CP_OPT_NW_REPLY_TIMEOUT 3000 // 3 seconds

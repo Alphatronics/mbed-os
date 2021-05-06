@@ -80,9 +80,6 @@
         },
         "TB_SENSE_12": {
             "nsapi.default-mesh-type": "LOWPAN"
-        },
-        "BINBEAT_V1_X": {
-            "default-cellular-apn": "\"EM\""
         }
     }
 }
